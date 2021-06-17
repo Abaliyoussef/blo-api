@@ -14,7 +14,17 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.set('views', './public');
 
-module.exports = app;
+
+var cons = require('consolidate');
+// view engine setup
+app.engine('html', cons.swig);
+app.set('view engine', 'html');
+
+
+//app.set('view engine', 'pug');
+app.use( '/', indexRouter); // localhost:3000/
+app.use( '/users', usersRouter);  // localhost:3000/users
+module.exports = app
+
