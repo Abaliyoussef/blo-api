@@ -13,7 +13,7 @@ userName: faker.internet.userName(),
 ))
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert('Users', users, {});
+    //return queryInterface.bulkInsert('Users', users, {});
     
     /**
      * Add seed commands here.
