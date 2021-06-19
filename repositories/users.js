@@ -29,5 +29,11 @@ const { User } = require('../models')
    deleteUser(id) { 
      return User.destroy({where:{id:id}});
    },
+   GetUserArticles(id){
+    return this.getUser(id).then( user=> user.getArticles() ) ;
+},
+GetUserComments(id){
+    return User.findOne({ where:{ id: id } }).then( user => user.getComments() ) ;
+},
    // D'autres méthodes jugées utiles
  }
