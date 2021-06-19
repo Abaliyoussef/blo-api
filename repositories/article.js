@@ -12,6 +12,9 @@ module.exports = {
       getArticle(id) {
        return Article.findOne({ where:{ id:id } });
        },
+       getArticleByTitle(title) { 
+        return Article.findOne({ where: { title: title } });
+    },
       addArticle(article) { 
         return Article.create({
           title: article.title,
